@@ -1,0 +1,96 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method MethorZ\\\\RequestLogger\\\\Logger\\\\PerformanceLogger\\:\\:logOperation\\(\\) throws checked exception Psr\\\\Log\\\\InvalidArgumentException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: src/Logger/PerformanceLogger.php
+
+		-
+			message: "#^Method MethorZ\\\\RequestLogger\\\\Tests\\\\Unit\\\\Logger\\\\PerformanceLoggerTest\\:\\:testLogOperationIncludesAdditionalContext\\(\\) throws checked exception PHPUnit\\\\Event\\\\NoPreviousThrowableException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: tests/Unit/Logger/PerformanceLoggerTest.php
+
+		-
+			message: "#^Method MethorZ\\\\RequestLogger\\\\Tests\\\\Unit\\\\Logger\\\\PerformanceLoggerTest\\:\\:testLogOperationLogsPerformanceMetrics\\(\\) throws checked exception PHPUnit\\\\Event\\\\NoPreviousThrowableException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: tests/Unit/Logger/PerformanceLoggerTest.php
+
+		-
+			message: "#^Method MethorZ\\\\RequestLogger\\\\Tests\\\\Unit\\\\Logger\\\\PerformanceLoggerTest\\:\\:testLogRequestLogsRequestMetrics\\(\\) throws checked exception PHPUnit\\\\Event\\\\NoPreviousThrowableException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: tests/Unit/Logger/PerformanceLoggerTest.php
+
+		-
+			message: "#^Method MethorZ\\\\RequestLogger\\\\Tests\\\\Unit\\\\Logger\\\\PerformanceLoggerTest\\:\\:testMeasureExecutesCallbackAndLogsPerformance\\(\\) throws checked exception PHPUnit\\\\Event\\\\NoPreviousThrowableException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: tests/Unit/Logger/PerformanceLoggerTest.php
+
+		-
+			message: "#^Method MethorZ\\\\RequestLogger\\\\Tests\\\\Unit\\\\Logger\\\\PerformanceLoggerTest\\:\\:testMeasureLogsEvenIfCallbackThrows\\(\\) throws checked exception PHPUnit\\\\Event\\\\NoPreviousThrowableException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: tests/Unit/Logger/PerformanceLoggerTest.php
+
+		-
+			message: "#^Method MethorZ\\\\RequestLogger\\\\Tests\\\\Unit\\\\Middleware\\\\LoggingMiddlewareTest\\:\\:createMockHandler\\(\\) throws checked exception PHPUnit\\\\Event\\\\NoPreviousThrowableException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: tests/Unit/Middleware/LoggingMiddlewareTest.php
+
+		-
+			message: "#^Method MethorZ\\\\RequestLogger\\\\Tests\\\\Unit\\\\Middleware\\\\LoggingMiddlewareTest\\:\\:createThrowingHandler\\(\\) throws checked exception PHPUnit\\\\Event\\\\NoPreviousThrowableException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: tests/Unit/Middleware/LoggingMiddlewareTest.php
+
+		-
+			message: "#^Method MethorZ\\\\RequestLogger\\\\Tests\\\\Unit\\\\Middleware\\\\LoggingMiddlewareTest\\:\\:testAddsRequestIdToResponseHeader\\(\\) throws checked exception Laminas\\\\Diactoros\\\\Exception\\\\InvalidArgumentException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 2
+			path: tests/Unit/Middleware/LoggingMiddlewareTest.php
+
+		-
+			message: "#^Method MethorZ\\\\RequestLogger\\\\Tests\\\\Unit\\\\Middleware\\\\LoggingMiddlewareTest\\:\\:testAddsRequestIdToResponseHeader\\(\\) throws checked exception PHPUnit\\\\Event\\\\NoPreviousThrowableException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: tests/Unit/Middleware/LoggingMiddlewareTest.php
+
+		-
+			message: "#^Method MethorZ\\\\RequestLogger\\\\Tests\\\\Unit\\\\Middleware\\\\LoggingMiddlewareTest\\:\\:testDoesNotAddRequestIdHeaderWhenDisabled\\(\\) throws checked exception Laminas\\\\Diactoros\\\\Exception\\\\InvalidArgumentException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 2
+			path: tests/Unit/Middleware/LoggingMiddlewareTest.php
+
+		-
+			message: "#^Method MethorZ\\\\RequestLogger\\\\Tests\\\\Unit\\\\Middleware\\\\LoggingMiddlewareTest\\:\\:testDoesNotAddRequestIdHeaderWhenDisabled\\(\\) throws checked exception PHPUnit\\\\Event\\\\NoPreviousThrowableException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: tests/Unit/Middleware/LoggingMiddlewareTest.php
+
+		-
+			message: "#^Method MethorZ\\\\RequestLogger\\\\Tests\\\\Unit\\\\Middleware\\\\LoggingMiddlewareTest\\:\\:testLogsExceptionWhenHandlerThrows\\(\\) throws checked exception Laminas\\\\Diactoros\\\\Exception\\\\InvalidArgumentException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: tests/Unit/Middleware/LoggingMiddlewareTest.php
+
+		-
+			message: "#^Method MethorZ\\\\RequestLogger\\\\Tests\\\\Unit\\\\Middleware\\\\LoggingMiddlewareTest\\:\\:testLogsExceptionWhenHandlerThrows\\(\\) throws checked exception PHPUnit\\\\Event\\\\NoPreviousThrowableException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: tests/Unit/Middleware/LoggingMiddlewareTest.php
+
+		-
+			message: "#^Method MethorZ\\\\RequestLogger\\\\Tests\\\\Unit\\\\Middleware\\\\LoggingMiddlewareTest\\:\\:testLogsRequestMethodAndUri\\(\\) throws checked exception Laminas\\\\Diactoros\\\\Exception\\\\InvalidArgumentException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 2
+			path: tests/Unit/Middleware/LoggingMiddlewareTest.php
+
+		-
+			message: "#^Method MethorZ\\\\RequestLogger\\\\Tests\\\\Unit\\\\Middleware\\\\LoggingMiddlewareTest\\:\\:testLogsRequestMethodAndUri\\(\\) throws checked exception PHPUnit\\\\Event\\\\NoPreviousThrowableException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: tests/Unit/Middleware/LoggingMiddlewareTest.php
+
+		-
+			message: "#^Method MethorZ\\\\RequestLogger\\\\Tests\\\\Unit\\\\Middleware\\\\LoggingMiddlewareTest\\:\\:testLogsRequestStartAndEnd\\(\\) throws checked exception Laminas\\\\Diactoros\\\\Exception\\\\InvalidArgumentException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 2
+			path: tests/Unit/Middleware/LoggingMiddlewareTest.php
+
+		-
+			message: "#^Method MethorZ\\\\RequestLogger\\\\Tests\\\\Unit\\\\Middleware\\\\LoggingMiddlewareTest\\:\\:testLogsRequestStartAndEnd\\(\\) throws checked exception PHPUnit\\\\Event\\\\NoPreviousThrowableException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: tests/Unit/Middleware/LoggingMiddlewareTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: tests/Unit/Middleware/LoggingMiddlewareTest.php
