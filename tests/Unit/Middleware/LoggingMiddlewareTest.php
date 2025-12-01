@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace MethorZ\RequestLogger\Tests\Unit\Middleware;
 
-use Laminas\Diactoros\Response;
-use Laminas\Diactoros\ServerRequest;
+use Nyholm\Psr7\Response;
+use Nyholm\Psr7\ServerRequest;
 use MethorZ\RequestLogger\Middleware\LoggingMiddleware;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
@@ -23,7 +23,7 @@ final class LoggingMiddlewareTest extends TestCase
 
         $middleware = new LoggingMiddleware($mockLogger);
 
-        $request = new ServerRequest([], [], '/test', 'GET');
+        $request = new ServerRequest('GET', '/test');
         $handler = $this->createMockHandler(new Response());
 
         $response = $middleware->process($request, $handler);
@@ -36,7 +36,7 @@ final class LoggingMiddlewareTest extends TestCase
         $mockLogger = $this->createMock(LoggerInterface::class);
         $middleware = new LoggingMiddleware($mockLogger);
 
-        $request = new ServerRequest([], [], '/test', 'GET');
+        $request = new ServerRequest('GET', '/test');
         $handler = $this->createMockHandler(new Response());
 
         $response = $middleware->process($request, $handler);
@@ -50,7 +50,7 @@ final class LoggingMiddlewareTest extends TestCase
         $mockLogger = $this->createMock(LoggerInterface::class);
         $middleware = new LoggingMiddleware($mockLogger, null, false);
 
-        $request = new ServerRequest([], [], '/test', 'GET');
+        $request = new ServerRequest('GET', '/test');
         $handler = $this->createMockHandler(new Response());
 
         $response = $middleware->process($request, $handler);
@@ -76,7 +76,7 @@ final class LoggingMiddlewareTest extends TestCase
 
         $middleware = new LoggingMiddleware($mockLogger);
 
-        $request = new ServerRequest([], [], '/test', 'GET');
+        $request = new ServerRequest('GET', '/test');
         $handler = $this->createThrowingHandler();
 
         $this->expectException(\RuntimeException::class);
@@ -100,7 +100,7 @@ final class LoggingMiddlewareTest extends TestCase
 
         $middleware = new LoggingMiddleware($mockLogger);
 
-        $request = new ServerRequest([], [], '/api/test', 'POST');
+        $request = new ServerRequest('POST', '/api/test');
         $handler = $this->createMockHandler(new Response());
 
         $middleware->process($request, $handler);
