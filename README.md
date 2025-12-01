@@ -28,7 +28,7 @@ Automatically add request IDs and performance metrics to all logs in PSR-15 midd
 ## 📦 Installation
 
 ```bash
-composer require methorz/structured-logging
+composer require methorz/http-request-logger
 ```
 
 ---
@@ -38,7 +38,7 @@ composer require methorz/structured-logging
 ### **1. Add Middleware to Your Application**
 
 ```php
-use Methorz\StructuredLogging\Middleware\LoggingMiddleware;
+use MethorZ\RequestLogger\Middleware\LoggingMiddleware;
 
 // Mezzio / Laminas
 $app->pipe(new LoggingMiddleware($logger));
@@ -62,7 +62,7 @@ That's it! Every request will now have:
 Adds a unique request ID to all log records:
 
 ```php
-use Methorz\StructuredLogging\Processor\RequestIdProcessor;
+use MethorZ\RequestLogger\Processor\RequestIdProcessor;
 use Monolog\Logger;
 
 $logger = new Logger('app');
@@ -87,7 +87,7 @@ $requestId = $processor->getRequestId();
 Track performance metrics for operations:
 
 ```php
-use Methorz\StructuredLogging\Logger\PerformanceLogger;
+use MethorZ\RequestLogger\Logger\PerformanceLogger;
 
 $perfLogger = new PerformanceLogger($logger);
 
@@ -129,8 +129,8 @@ $perfLogger->logRequest($startTime, [
 PSR-15 middleware for automatic request logging:
 
 ```php
-use Methorz\StructuredLogging\Middleware\LoggingMiddleware;
-use Methorz\StructuredLogging\Processor\RequestIdProcessor;
+use MethorZ\RequestLogger\Middleware\LoggingMiddleware;
+use MethorZ\RequestLogger\Processor\RequestIdProcessor;
 
 // Basic usage
 $middleware = new LoggingMiddleware($logger);
@@ -234,8 +234,8 @@ cat app.log | jq 'select(.extra.request_id == "req_673e5c2f47a0c1.23456789")'
 
 ```php
 // config/autoload/logging.global.php
-use Methorz\StructuredLogging\Middleware\LoggingMiddleware;
-use Methorz\StructuredLogging\Processor\RequestIdProcessor;
+use MethorZ\RequestLogger\Middleware\LoggingMiddleware;
+use MethorZ\RequestLogger\Processor\RequestIdProcessor;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Psr\Container\ContainerInterface;
@@ -297,7 +297,7 @@ Works seamlessly with Monolog:
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Monolog\Formatter\JsonFormatter;
-use Methorz\StructuredLogging\Processor\RequestIdProcessor;
+use MethorZ\RequestLogger\Processor\RequestIdProcessor;
 
 $logger = new Logger('app');
 
