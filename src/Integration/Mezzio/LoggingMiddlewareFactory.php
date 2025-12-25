@@ -7,6 +7,7 @@ namespace MethorZ\RequestLogger\Integration\Mezzio;
 use MethorZ\RequestLogger\Middleware\LoggingMiddleware;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
 
 /**
  * Mezzio/Laminas ServiceManager factory for LoggingMiddleware
@@ -32,8 +33,10 @@ final class LoggingMiddlewareFactory
 {
     public function __invoke(ContainerInterface $container): LoggingMiddleware
     {
-        // Logger is required (PSR-3)
-        $logger = $container->get(LoggerInterface::class);
+        // Try to get logger, fallback to NullLogger if somehow not available
+        $logger = $container->has(LoggerInterface::class)
+            ? $container->get(LoggerInterface::class)
+            : new NullLogger();
 
         // Read configuration from container (if available)
         $config = $container->has('config') ? $container->get('config') : [];

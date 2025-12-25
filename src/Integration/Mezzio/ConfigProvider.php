@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace MethorZ\RequestLogger\Integration\Mezzio;
 
 use MethorZ\RequestLogger\Middleware\LoggingMiddleware;
+use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
 
 /**
  * Mezzio configuration provider for the http-request-logger package
@@ -35,13 +37,16 @@ final class ConfigProvider
     }
 
     /**
-     * @return array<string, array<string, string>>
+     * @return array<string, array<string, string|callable>>
      */
     public function getDependencies(): array
     {
         return [
             'factories' => [
                 LoggingMiddleware::class => LoggingMiddlewareFactory::class,
+                // Provide NullLogger as fallback (lowest priority)
+                // Will be overridden if Monolog or another logger is configured
+                LoggerInterface::class => fn() => new NullLogger(),
             ],
         ];
     }
