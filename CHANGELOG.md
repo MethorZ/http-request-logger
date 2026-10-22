@@ -18,6 +18,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - PHP requirement raised to `~8.4.27 || ~8.5.12` (releases patched for php2shell: CVE-2026-109618, CVE-2026-109619). PHP 8.2 and 8.3 are no longer supported.
 - Updated development dependencies: phpunit/phpunit ^13.4, phpstan/phpstan ^2.3, slevomat/coding-standard ^8.31, squizlabs/php_codesniffer ^4.0.1, monolog/monolog ^3.12.
 
+## [1.1.0] - 2025-12-25
+
+### Fixed
+- `ServiceNotFoundException` in setups without a configured `LoggerInterface`: the `ConfigProvider` registers `NullLogger` as the default, and `LoggingMiddlewareFactory` checks for a missing logger. Loggers configured by the application still take precedence.
+
 ## [1.0.0] - 2025-11-27
 
 ### Added
@@ -37,4 +42,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [1.2.1]: https://github.com/methorz/http-request-logger/releases/tag/v1.2.1
 [1.2.0]: https://github.com/methorz/http-request-logger/releases/tag/v1.2.0
+[1.1.0]: https://github.com/methorz/http-request-logger/releases/tag/v1.1.0
 [1.0.0]: https://github.com/methorz/http-request-logger/releases/tag/v1.0.0
