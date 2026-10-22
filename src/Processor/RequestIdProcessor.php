@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace MethorZ\RequestLogger\Processor;
 
 use Monolog\LogRecord;
-use Monolog\Processor\ProcessorInterface;
 
 use function uniqid;
 
@@ -15,12 +14,16 @@ use function uniqid;
  * The request ID persists for the lifetime of the current request,
  * allowing you to correlate all logs from a single request.
  *
+ * Monolog is optional, so this class must stay loadable without it: it is
+ * passed to Logger::pushProcessor() as a callable instead of implementing
+ * Monolog\Processor\ProcessorInterface.
+ *
  * Usage with Monolog:
  * ```php
  * $logger->pushProcessor(new RequestIdProcessor());
  * ```
  */
-final class RequestIdProcessor implements ProcessorInterface
+final class RequestIdProcessor
 {
     private string $requestId;
 

@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-10-22
+
+### Fixed
+- `LoggingMiddleware` no longer fails with "Interface Monolog\Processor\ProcessorInterface not found" when the optional `monolog/monolog` package is not installed. `RequestIdProcessor` no longer implements Monolog's `ProcessorInterface`; Monolog still accepts it as a callable processor.
+
 ## [1.2.0] - 2026-10-22
 
 ### Changed
@@ -30,5 +35,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Comprehensive test suite
 - Complete documentation with examples
 
+[1.2.1]: https://github.com/methorz/http-request-logger/releases/tag/v1.2.1
 [1.2.0]: https://github.com/methorz/http-request-logger/releases/tag/v1.2.0
 [1.0.0]: https://github.com/methorz/http-request-logger/releases/tag/v1.0.0
