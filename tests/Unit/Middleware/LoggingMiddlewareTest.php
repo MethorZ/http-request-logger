@@ -33,7 +33,7 @@ final class LoggingMiddlewareTest extends TestCase
 
     public function testAddsRequestIdToResponseHeader(): void
     {
-        $mockLogger = $this->createMock(LoggerInterface::class);
+        $mockLogger = $this->createStub(LoggerInterface::class);
         $middleware = new LoggingMiddleware($mockLogger);
 
         $request = new ServerRequest('GET', '/test');
@@ -47,7 +47,7 @@ final class LoggingMiddlewareTest extends TestCase
 
     public function testDoesNotAddRequestIdHeaderWhenDisabled(): void
     {
-        $mockLogger = $this->createMock(LoggerInterface::class);
+        $mockLogger = $this->createStub(LoggerInterface::class);
         $middleware = new LoggingMiddleware($mockLogger, null, false);
 
         $request = new ServerRequest('GET', '/test');
@@ -108,7 +108,7 @@ final class LoggingMiddlewareTest extends TestCase
 
     private function createMockHandler(ResponseInterface $response): RequestHandlerInterface
     {
-        $handler = $this->createMock(RequestHandlerInterface::class);
+        $handler = $this->createStub(RequestHandlerInterface::class);
         $handler->method('handle')
             ->willReturn($response);
 
@@ -117,7 +117,7 @@ final class LoggingMiddlewareTest extends TestCase
 
     private function createThrowingHandler(): RequestHandlerInterface
     {
-        $handler = $this->createMock(RequestHandlerInterface::class);
+        $handler = $this->createStub(RequestHandlerInterface::class);
         $handler->method('handle')
             ->willThrowException(new \RuntimeException('Test exception'));
 
